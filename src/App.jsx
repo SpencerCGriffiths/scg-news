@@ -5,30 +5,43 @@ import Header from './Components/Header'
 import NavWrapper from './Components/NavWrapper'
 import ContentWrapper from './Components/ContentWrapper'
 import BottomButtons from './Components/BottomButtons'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { getArticles } from './Utils/Queries'
+
 
 function App() {
+const[isLoading, setIsLoading] = useState(true)
 
-  const[articles, setArticles] = useState([])
+const[articles, setArticles] = useState([])
+  
 
-  useEffect(()=> { 
-    axios
-    .get("https://readaway.onrender.com/api/articles")
+
+  useEffect(() => { 
+    getArticles()
     .then((res) => { 
-      setArticles(res.data.articles)
+      setArticles(res)
+      setIsLoading(false)
     })
-    .catch((err) => { 
-      console.log(err)
-    })
-    }, [])
+  }, [])
 
-    return (
-      <> 
+
+
+if (isLoading) { 
+  return <>
+  <h2>Loading...</h2>
+  </>
+} else { 
+
+return (
+<BrowserRouter> 
     <Header /> 
-    <NavWrapper /> 
-    <ContentWrapper articles = { articles } /> 
+    <NavWrapper />
+    <Routes>  
+    <Route path="/" element= {<ContentWrapper articles = { articles }/>} /> 
+    </Routes>
     <BottomButtons /> 
-    </>
+</BrowserRouter>
   )
 }
-
+}
 export default App

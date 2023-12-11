@@ -16,7 +16,3 @@ export function DateConverter(isoDate) {
     const formattedDate = `${formattedHour}:${formattedMinute} ${formattedDay}/${formattedMonth}/${formattedYear}`;
 return formattedDate
 }
-
-export function console () { 
-    console.log("hi")
-}
