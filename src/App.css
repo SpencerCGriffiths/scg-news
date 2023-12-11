@@ -1,0 +1,61 @@
+/* Header */
+#Header { 
+  border: 1px solid black;
+  position: fixed; 
+  top: 0;
+  background-color: white;
+  width: 95vw;
+}
+
+
+/* Navigation */
+#NavWrapper { 
+  border: 1px solid black; 
+  position: fixed; 
+  top: 10vh;
+  background-color: white;
+  width: 95vw; 
+  display: flex inline
+}
+
+#Filter { 
+  border: 1px solid black; 
+}
+
+#searchBar { 
+  border: 1px solid black; 
+}
+
+
+/* Homepage */
+#artHeader { 
+ position: fixed;
+ top: 11vh;
+ background-color: white;  
+}
+
+.articles { 
+  margin-top: 20vh;
+}
+
+#singleArticle { 
+
+}
+
+#articleTitle { 
+
+}
+
+#articleImg { 
+  width: 80vw; 
+  height: 5vh; 
+}
+
+
+/* Bottom Buttons */
+
+.BottomButtonPane { 
+  border: 1px solid black; 
+  position: fixed;
+  bottom: 0;  
+}
