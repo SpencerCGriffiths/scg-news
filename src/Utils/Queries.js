@@ -21,3 +21,11 @@ export function getArticleById (id) {
     return res.data.article
   })
 }
+
+export function getCommentById (id) { 
+  return axios
+  .get(`https://readaway.onrender.com/api/articles/${id}/comments`)
+  .then((res)=> { 
+    return res.data.comments
+  })
+}

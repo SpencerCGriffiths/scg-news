@@ -18,7 +18,7 @@ return (
     <NavWrapper />
     <Routes>  
     <Route path="/" element= {<ViewAll />} /> 
-    <Route path="/:id" element ={<SingleArticle />}/>
+    <Route path="/articles/:id" element ={<SingleArticle />}/>
     </Routes>
     <BottomButtons /> 
 </BrowserRouter>
