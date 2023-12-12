@@ -12,7 +12,7 @@ const ViewSingleArticle = (props) => {
         navigate(-1)
     }
 
-    const {singleArticle} = props
+    const {singleArticle, comments} = props
 
     return ( 
     <article id="singleArticle" className="headerMargin" key= {singleArticle.article_id}> 
@@ -24,6 +24,20 @@ const ViewSingleArticle = (props) => {
     <div>posted {DateConverter(singleArticle.created_at)}</div>
     <span>{singleArticle.votes} votes</span>
     <div>{singleArticle.comment_count} comments</div>
+    <ul> 
+        {comments.map((comment)=> { 
+            return <li key= {comment.comment_id}>
+                <div>{comment.author} commented</div>
+                <div>{comment.body}</div>
+                <div>{DateConverter(comment.created_at)}</div> 
+                <section> 
+                    <button>Yep</button>
+                    <button>Nope</button>
+                    <span> {comment.votes} Yeps</span>
+                </section> 
+            </li>
+        })}
+    </ul>
     <button onClick={handleClick}>return</button>
     </article>
     )
