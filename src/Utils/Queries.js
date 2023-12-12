@@ -29,3 +29,16 @@ export function getCommentById (id) {
     return res.data.comments
   })
 }
+
+
+export function updateVotes (id, vote) { 
+  return axios
+  .patch(`https://readaway.onrender.com/api/articles/${id}`, 
+  {"inc_votes": vote})
+  .then((res) => { 
+    console.log(res.data.updatedArticle.votes)
+  })
+  .catch((err) => { 
+    console.log(err)
+  })
+}

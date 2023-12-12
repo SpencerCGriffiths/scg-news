@@ -2,9 +2,11 @@ import { useEffect } from "react"
 import { getArticleById } from "../Utils/Queries"
 import { DateConverter } from "../Utils/DateConverter"
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const ViewSingleArticle = (props) => { 
 
+    const [votes, setVotes] = useState()
     let navigate = useNavigate()
 
 
