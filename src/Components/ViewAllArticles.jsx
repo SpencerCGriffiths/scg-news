@@ -38,8 +38,11 @@ return <article  id="singleArticle" key = {article.article_id} >
             <div> by {article.author}</div>
             <div>
             <span>{article.comment_count} comments</span>
-            <button>likes</button>
-            <button>Dislike</button>
+            <span> {article.votes} </span>
+            <button onClick={() => { 
+            handleClick(article.article_id, 1)}}>likes</button>
+            <button onClick={() => { 
+            handleClick(article.article_id, -1)}}>Dislike</button>
             <Link className="Link" to={`/articles/${article.article_id}`} >
             <button>See Comments</button>
             </Link>
