@@ -15,16 +15,9 @@ const SingleArticle = () => {
         getArticleById(id)
         .then((res) => { 
             setSingleArticle(res)
-            setIsLoading(false)
+            return getCommentById(id)            
         })
-        .catch((err) => { 
-            console.log(err)
-        })
-    },[])
-
-    useEffect(() => { 
-        getCommentById(id)
-        .then((res) => { 
+        .then((res)=> { 
             setComments(res)
             setIsLoading(false)
         })
@@ -32,6 +25,7 @@ const SingleArticle = () => {
             console.log(err)
         })
     },[])
+
 
 if (isLoading) { 
     return <h1>Loading...</h1>
