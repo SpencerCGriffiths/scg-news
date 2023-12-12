@@ -8,15 +8,13 @@ const ViewAll = () => {
     const[articles, setArticles] = useState([])
     const[isLoading, setIsLoading] = useState(true)
 
-
-
     useEffect(() => { 
         getArticles()
             .then((res) => { 
             setArticles(res)
             setIsLoading(false)
             })
-        }, [])
+        }, [articles])
     
 
         if (isLoading) { 
@@ -29,7 +27,7 @@ const ViewAll = () => {
     return ( 
         <> 
         <ArtHeader /> 
-        <ViewAllArticles articles = {articles} /> 
+        <ViewAllArticles articles = {articles} setArticles = {setArticles} /> 
         </>
     )
     }
