@@ -1,9 +1,17 @@
 import { useEffect } from "react"
 import { getArticleById } from "../Utils/Queries"
 import { DateConverter } from "../Utils/DateConverter"
+import { useNavigate } from "react-router-dom";
 
 const ViewSingleArticle = (props) => { 
-    
+
+    let navigate = useNavigate()
+
+
+    const handleClick = () => { 
+        navigate(-1)
+    }
+
     const {singleArticle} = props
 
     return ( 
@@ -16,6 +24,7 @@ const ViewSingleArticle = (props) => {
     <div>posted {DateConverter(singleArticle.created_at)}</div>
     <span>{singleArticle.votes} votes</span>
     <div>{singleArticle.comment_count} comments</div>
+    <button onClick={handleClick}>return</button>
     </article>
     )
 }
