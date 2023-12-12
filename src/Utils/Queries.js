@@ -18,7 +18,6 @@ export function getArticleById (id) {
   .get(`https://readaway.onrender.com/api/articles/${id}`, {
   })
   .then((res) => { 
-  console.log(res.data.article)
     return res.data.article
   })
 }

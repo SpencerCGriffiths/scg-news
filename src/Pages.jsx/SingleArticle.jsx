@@ -13,7 +13,6 @@ const SingleArticle = () => {
     useEffect(() => { 
         getArticleById(id)
         .then((res) => { 
-            console.log(res) 
             setSingleArticle(res)
             setIsLoading(false)
         })
@@ -24,7 +23,9 @@ const SingleArticle = () => {
 
 if (isLoading) { 
     return <h1>Loading...</h1>
-} else { 
+} 
+
+if (singleArticle) { 
 return <> 
     <ViewSingleArticle singleArticle = {singleArticle}/> 
     </>

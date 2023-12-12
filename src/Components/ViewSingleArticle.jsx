@@ -5,7 +5,6 @@ import { DateConverter } from "../Utils/DateConverter"
 const ViewSingleArticle = (props) => { 
     
     const {singleArticle} = props
-    console.log(singleArticle)
 
     return ( 
     <article id="singleArticle" className="headerMargin" key= {singleArticle.article_id}> 
