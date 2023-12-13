@@ -1,7 +1,7 @@
 import { DateConverter } from "../Utils/DateConverter"
 import { Link } from 'react-router-dom'
 import { updateVotes } from "../Utils/Queries"
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 const ArticleCard = (props) => { 
 
@@ -10,7 +10,7 @@ const { article, setArticles } = props
 
 const handleClick = (article_id, vote) => { 
   updatedArticles(article_id, vote)
-  updateVotes(article_id, vote)  
+  updateVotes(article_id, vote)
 }
 
 const updatedArticles = (article_id, vote) => { 

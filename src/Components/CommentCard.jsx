@@ -10,14 +10,16 @@ const CommentCard = (props) => {
     const {comment, setComments} = props
 
     const handleClick = () => { 
-        deleteComment(comment.comment_id)
         setComments((comments) => { 
             let updatedComments = comments.filter((com) => {
                 return !(com.author === comment.author && com.comment_id === comment.comment_id);
             });
-            console.log(updatedComments)
             return updatedComments;
         });
+        deleteComment(comment.comment_id)
+        .catch(() => { 
+            setComments((comments) => { return [...comments]})
+        })
     };   
 
    

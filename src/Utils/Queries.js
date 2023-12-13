@@ -50,7 +50,7 @@ export function postNewComment (id, username, comment) {
     "username": username,
     "body": comment})
   .then((res) => { 
-    console.log(res)
+    return res
   })
   .catch((err) => { 
     console.log(err)
@@ -61,7 +61,7 @@ export function deleteComment (commentId) {
   return axios
   .delete(`https://readaway.onrender.com/api/comments/${commentId}`)
   .then((res) => { 
-    console.log(res)
+    return res
   })
   .catch((err) => { 
     console.log(err)
