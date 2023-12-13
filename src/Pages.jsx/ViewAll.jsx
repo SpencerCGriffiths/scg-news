@@ -13,25 +13,14 @@ const ViewAll = () => {
     const[isLoading, setIsLoading] = useState(true)
 
 
-if(topic) {
-    useEffect(()=> { 
+useEffect(()=> { 
         setIsLoading(true)
-        getArticleByTopic(topic)
+        getArticles(topic)
         .then((res)=> { 
             setArticles(res)
             setIsLoading(false)
         })
     }, [topic])
-} else { 
-    useEffect(() => { 
-        setIsLoading(true)
-        getArticles()
-            .then((res) => { 
-            setArticles(res)
-            setIsLoading(false)
-            })
-        }, [topic])    
-}
     
 
 if (isLoading) { 

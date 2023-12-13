@@ -1,15 +1,19 @@
 import axios from "axios"
 
-export function getArticles (id) {  
-        return axios
-        .get("https://readaway.onrender.com/api/articles", {
-          params: { 
-            id : 3
-          }
-        })
-        .then((res) => { 
+export function getArticles (topic) {  
+  const baseURL =  "https://readaway.onrender.com/api/articles";
+
+  const params = {
+    topic: topic,
+  };
+  
+      return axios.get(baseURL, { params })
+      .then((res) => { 
           return res.data.articles
         })
+        .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
 }
 
 
@@ -89,4 +93,6 @@ export function getArticleByTopic (topic) {
   .catch((err) => { 
     console.log(err)
   })
+
+
 }

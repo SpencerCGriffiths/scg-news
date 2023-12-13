@@ -10,7 +10,6 @@ import { getArticles } from './Utils/Queries'
 import SingleArticle from './Pages.jsx/SingleArticle'
 import ViewAll from './Pages.jsx/ViewAll'
 import UserContext from './contexts/UserContext'
-import ViewByTopic from './Pages.jsx/ViewByTopic'
 
 
 function App() {
