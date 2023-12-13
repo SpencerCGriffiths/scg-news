@@ -5,6 +5,7 @@ import { getArticleById, getCommentById } from "../Utils/Queries"
 import { useNavigate } from 'react-router-dom'
 import { DateConverter } from "../Utils/DateConverter"
 import CommentCard from "../Components/CommentCard"
+import NewComment from "../Components/NewComment"
 
 const SingleArticle = () => { 
 
@@ -21,6 +22,7 @@ const SingleArticle = () => {
 
     const {id} = useParams()
 
+
     useEffect(() => { 
         getArticleById(id)
         .then((res) => { 
@@ -34,7 +36,7 @@ const SingleArticle = () => {
         .catch((err) => { 
             console.log(err)
         })
-    },[])
+    },[comments])
 
 
 if (isLoading) { 
@@ -52,6 +54,7 @@ return (
 <div>posted {DateConverter(singleArticle.created_at)}</div>
 <span>{singleArticle.votes} votes</span>
 <div>{singleArticle.comment_count} comments</div>
+<NewComment setComments = { setComments } /> 
 <ul> 
     {comments.map((comment)=> { 
         return <CommentCard comment = { comment } key= {comment.comment_id}/> 
