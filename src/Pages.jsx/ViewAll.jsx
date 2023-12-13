@@ -8,13 +8,15 @@ const ViewAll = () => {
     const[articles, setArticles] = useState([])
     const[isLoading, setIsLoading] = useState(true)
 
+    console.log(articles)
+    
     useEffect(() => { 
         getArticles()
             .then((res) => { 
             setArticles(res)
             setIsLoading(false)
             })
-        }, [articles])
+        }, [])
     
 
         if (isLoading) { 

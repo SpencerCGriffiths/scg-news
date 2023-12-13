@@ -69,7 +69,16 @@ export function deleteComment (commentId) {
 
 }
 
-
+export function getTopics () { 
+  return axios.
+  get(`https://readaway.onrender.com/api/topics`)
+  .then((res) => { 
+    return res.data.topics
+  })
+  .catch((err) => { 
+    console.log(err)
+  })
+}
 
 
 

@@ -24,6 +24,7 @@ const SingleArticle = () => {
     const [comments, setComments] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
+
     const {id} = useParams()
 
 
@@ -40,10 +41,11 @@ const SingleArticle = () => {
         .catch((err) => { 
             console.log(err)
         })
-    },[comments])
+    },[])
 
 
 if (isLoading) { 
+    console.log("accessed loading")
     return <h1>Loading...</h1>
 } 
 

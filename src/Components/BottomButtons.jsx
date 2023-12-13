@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CategoryDraw from './CategoryDraw'
 
 const BottomButtons = () => { 
     return ( 
@@ -8,7 +9,7 @@ const BottomButtons = () => {
 </Link>
             <button> Category </button>
             <button> User </button>
-            <button> Create </button>
+            <CategoryDraw /> 
         </div> 
     )
 }

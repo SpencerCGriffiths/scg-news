@@ -10,7 +10,7 @@ const { articles , setArticles } = props
 
 const handleClick = (article_id, vote) => { 
   updatedArticles(article_id, vote)
-  return updateVotes(article_id, vote)  
+  updateVotes(article_id, vote)  
 }
 
 const updatedArticles = (article_id, vote) => { 
@@ -21,7 +21,7 @@ const updatedArticles = (article_id, vote) => {
     }
     return article 
   })
-  setArticles(updatedArticles)
+ return setArticles(updatedArticles)
 }
 
 return ( 

@@ -26,14 +26,15 @@ const NewComment = (props) => {
       if (newComment.length > 0) { 
         postNewComment(id,currUser, newComment)
         let date = new Date()
-        setComments((comments) => {[...comments, { 
+       setComments((comments) => {
+        return [ { 
           article_id: id,
           author: currUser, 
           body: newComment, 
           comment_id: date, 
           created_at: date, 
           votes: 0
-        }]
+        }, ...comments]
         }) 
       } else {
         alert("comment cannot be empty")
