@@ -2,14 +2,13 @@ import ArtHeader from "../Components/ArtHeader"
 import ViewAllArticles from "../Components/ViewAllArticles"
 import {useState, useEffect} from "react"
 import { getArticles } from "../Utils/Queries"
+import ArticleCard from "../Components/ArticleCard"
 
 
 const ViewAll = () => {
     const[articles, setArticles] = useState([])
     const[isLoading, setIsLoading] = useState(true)
 
-    console.log(articles)
-    
     useEffect(() => { 
         getArticles()
             .then((res) => { 
@@ -19,17 +18,18 @@ const ViewAll = () => {
         }, [])
     
 
-        if (isLoading) { 
-    return <>
+if (isLoading) { 
+return <>
     <h2>Loading...</h2>
     </>
     } 
-    else 
-    { 
+
+if (articles) { 
     return ( 
         <> 
         <ArtHeader /> 
-        <ViewAllArticles articles = {articles} setArticles = {setArticles} /> 
+     {articles.map((article) => {
+        return <ArticleCard  article = {article}  setArticles = {setArticles} key = {article.article_id} /> }) } 
         </>
     )
     }

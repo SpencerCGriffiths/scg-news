@@ -23,7 +23,6 @@ const CategoryDraw = () => {
         getTopics()
             .then((res) => { 
             setTopics(res)
-            console.log(res)
             })
         }, [])
         

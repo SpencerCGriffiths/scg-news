@@ -45,7 +45,6 @@ const SingleArticle = () => {
 
 
 if (isLoading) { 
-    console.log("accessed loading")
     return <h1>Loading...</h1>
 } 
 
