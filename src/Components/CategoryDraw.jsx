@@ -52,7 +52,7 @@ const CategoryDraw = () => {
       <List>
         {topics.map((topic) => { 
          return <ListItem key={topic.slug} disablePadding>
-            <Link to={`/articles`}> 
+            <Link className="link" to={`/articles/topic/${topic.slug}`}> 
             <ListItemButton>
               <ListItemIcon>
               </ListItemIcon>
@@ -75,22 +75,18 @@ const CategoryDraw = () => {
       </Box>
   );
 
-  return (
-    <div>
-      {['right'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+  return ( 
+        <React.Fragment key='category'>
+          <Button onClick={toggleDrawer('right', true)}>category</Button>
           <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
+            anchor="right"
+            open={state.right}
+            onClose={toggleDrawer("right", false)}
+            onOpen={toggleDrawer("right", true)}
           >
-            {list(anchor)}
+           {list("right")}
           </SwipeableDrawer>
         </React.Fragment>
-      ))}
-    </div>
   );
 }
 
