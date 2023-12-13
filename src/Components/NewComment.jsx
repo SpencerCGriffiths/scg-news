@@ -13,26 +13,21 @@ const NewComment = (props) => {
     const {setComments} = props
     const [newComment, setNewComment] = useState("") 
 
+
     const handleCommentInput = (event) => { 
         let displayComment = event.target.value
         setNewComment(displayComment)
     }
 
+
     const submitNewComment = () => { 
       if (newComment.length > 0) { 
-        let date = new Date()
-       setComments((comments) => {
-        return [ { 
-          article_id: id,
-          author: currUser, 
-          body: newComment, 
-          created_at: date, 
-          votes: 0
-        }, ...comments]
-        }) 
         postNewComment(id,currUser, newComment)
         .then((res) => { 
-          console.log(res)
+          setComments((comments) => { 
+            return [res.data.new_comment, ...comments]
+          })
+          console.log(res.data.new_comment)
         })
       } else {
         alert("comment cannot be empty")

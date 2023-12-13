@@ -10,30 +10,16 @@ const CommentCard = (props) => {
     const {comment, setComments} = props
 
 
-    const handleClick = () => { 
-        // if (comment.comment_id) { 
-        //     setComments((comments) => { 
-        //         console.log(comments)
-        //         let updatedComments = comments.filter((com) => {
-        //             return !(com.author === comment.author && com.comment_id === comment.comment_id);
-        //         });
-        //         return updatedComments;
-        //     })                 
-        // } else { 
-        //     setComments((comments) => { 
-        //         let updatedComments = comments.filter((com) => {
-        //             return !(com.author === comment.author && com.comment_id === comment.comment_id);
-        //         });
-        //         return updatedComments;
-        //     })     
+    const handleClick = () => {  
+            console.log(comment.comment_id)    
             deleteComment(comment.comment_id)
             .then((res) => { 
-                console.log(res)
-            })
-            .catch(() => { 
-                setComments((comments) => { return [...comments]})
+                setComments((comments) => { 
+                  return comments.filter((com) => com.comment_id !== comment.comment_id) 
+            })})
+            .catch((err) => { 
+                console.log(err)
             })    
-        // }
     };   
 
    
@@ -55,3 +41,20 @@ return ( <li>
 }
 
 export default CommentCard
+
+
+        // if (comment.comment_id) { 
+        //     setComments((comments) => { 
+        //         console.log(comments)
+        //         let updatedComments = comments.filter((com) => {
+        //             return !(com.author === comment.author && com.comment_id === comment.comment_id);
+        //         });
+        //         return updatedComments;
+        //     })                 
+        // } else { 
+        //     setComments((comments) => { 
+        //         let updatedComments = comments.filter((com) => {
+        //             return !(com.author === comment.author && com.comment_id === comment.comment_id);
+        //         });
+        //         return updatedComments;
+        //     })

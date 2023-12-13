@@ -15,14 +15,12 @@ const CommentWrapper = () => {
         getCommentById(id)
         .then((res)=> { 
             setComments(res);
-            setIsLoading(false)
-           ;
+            setIsLoading(false);
         })
         .catch((err) => { 
             console.log(err);
         });
     }, []);
-
 
 if (isLoading) { 
     return <h1>Loading comments...</h1>
