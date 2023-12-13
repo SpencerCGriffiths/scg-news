@@ -17,6 +17,7 @@ const NewComment = (props) => {
     const handleCommentInput = (event) => { 
         let displayComment = event.target.value
         setNewComment(displayComment)
+        console.log(displayComment)
     }
 
 
@@ -27,7 +28,10 @@ const NewComment = (props) => {
           setComments((comments) => { 
             return [res.data.new_comment, ...comments]
           })
-          console.log(res.data.new_comment)
+          setNewComment("")
+        })
+        .catch((err) => { 
+          console.log(err)
         })
       } else {
         alert("comment cannot be empty")
@@ -47,6 +51,7 @@ const NewComment = (props) => {
           <TextField
             id="outlined-multiline-flexible"
             label="New comment.."
+            value = {newComment}
             multiline
             maxRows={4}
             onChange={handleCommentInput}
