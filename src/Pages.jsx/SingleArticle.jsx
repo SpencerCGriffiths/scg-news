@@ -7,6 +7,7 @@ import { DateConverter } from "../Utils/DateConverter"
 import CommentCard from "../Components/CommentCard"
 import NewComment from "../Components/NewComment"
 import UserContext from "../contexts/UserContext"
+import CommentWrapper from "../Components/CommentWrapper"
 
 const SingleArticle = () => { 
 
@@ -21,34 +22,30 @@ const SingleArticle = () => {
     }
 
     const [singleArticle, setSingleArticle] = useState()
-    const [comments, setComments] = useState()
     const [isLoading, setIsLoading] = useState(true)
+
 
 
     const {id} = useParams()
 
 
-    useEffect(() => { 
+    useEffect(() => {
         getArticleById(id)
         .then((res) => { 
-            setSingleArticle(res)
-            return getCommentById(id)            
-        })
-        .then((res)=> { 
-            setComments(res)
+            setSingleArticle(res); 
             setIsLoading(false)
         })
         .catch((err) => { 
-            console.log(err)
-        })
-    },[])
-
+            console.log(err);
+        });
+    }, [id]);
+    
 
 if (isLoading) { 
     return <h1>Loading...</h1>
 } 
 
-if(singleArticle && comments) { 
+if(singleArticle) { 
 return ( 
 <article id="singleArticle" className="headerMargin" key= {singleArticle.article_id}> 
 <span>{singleArticle.title}</span>
@@ -59,13 +56,7 @@ return (
 <div>posted {DateConverter(singleArticle.created_at)}</div>
 <span>{singleArticle.votes} votes</span>
 <div>{singleArticle.comment_count} comments</div>
-<NewComment setComments = { setComments } /> 
-<ul> 
-    {comments.map((comment)=> { 
-        return <CommentCard comment = { comment } setComments= { setComments } key= {comment.comment_id}/> 
-    })} 
-
-</ul>
+<CommentWrapper /> 
 <button onClick={handleClick}>return</button>
 </article>
 )

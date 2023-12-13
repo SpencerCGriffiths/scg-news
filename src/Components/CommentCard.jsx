@@ -9,17 +9,31 @@ const CommentCard = (props) => {
     const { currUser } = useContext(UserContext)
     const {comment, setComments} = props
 
+
     const handleClick = () => { 
-        setComments((comments) => { 
-            let updatedComments = comments.filter((com) => {
-                return !(com.author === comment.author && com.comment_id === comment.comment_id);
-            });
-            return updatedComments;
-        });
-        deleteComment(comment.comment_id)
-        .catch(() => { 
-            setComments((comments) => { return [...comments]})
-        })
+        // if (comment.comment_id) { 
+        //     setComments((comments) => { 
+        //         console.log(comments)
+        //         let updatedComments = comments.filter((com) => {
+        //             return !(com.author === comment.author && com.comment_id === comment.comment_id);
+        //         });
+        //         return updatedComments;
+        //     })                 
+        // } else { 
+        //     setComments((comments) => { 
+        //         let updatedComments = comments.filter((com) => {
+        //             return !(com.author === comment.author && com.comment_id === comment.comment_id);
+        //         });
+        //         return updatedComments;
+        //     })     
+            deleteComment(comment.comment_id)
+            .then((res) => { 
+                console.log(res)
+            })
+            .catch(() => { 
+                setComments((comments) => { return [...comments]})
+            })    
+        // }
     };   
 
    

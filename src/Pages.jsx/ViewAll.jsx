@@ -1,5 +1,4 @@
 import ArtHeader from "../Components/ArtHeader"
-import ViewAllArticles from "../Components/ViewAllArticles"
 import {useState, useEffect} from "react"
 import { getArticles } from "../Utils/Queries"
 import ArticleCard from "../Components/ArticleCard"

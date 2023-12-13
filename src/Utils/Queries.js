@@ -30,7 +30,6 @@ export function getCommentById (id) {
   })
 }
 
-
 export function updateVotes (id, vote) { 
   return axios
   .patch(`https://readaway.onrender.com/api/articles/${id}`, 

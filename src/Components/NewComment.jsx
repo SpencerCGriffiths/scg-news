@@ -8,12 +8,9 @@ import UserContext from '../contexts/UserContext';
 
 const NewComment = (props) => { 
 
-  const {currUser }= useContext(UserContext)
-
-  const {id} = useParams() 
-
+    const { currUser }= useContext(UserContext)
+    const {id} = useParams() 
     const {setComments} = props
-
     const [newComment, setNewComment] = useState("") 
 
     const handleCommentInput = (event) => { 
@@ -21,21 +18,22 @@ const NewComment = (props) => {
         setNewComment(displayComment)
     }
 
-
     const submitNewComment = () => { 
       if (newComment.length > 0) { 
-        postNewComment(id,currUser, newComment)
         let date = new Date()
        setComments((comments) => {
         return [ { 
           article_id: id,
           author: currUser, 
           body: newComment, 
-          comment_id: date, 
           created_at: date, 
           votes: 0
         }, ...comments]
         }) 
+        postNewComment(id,currUser, newComment)
+        .then((res) => { 
+          console.log(res)
+        })
       } else {
         alert("comment cannot be empty")
        }
@@ -65,33 +63,3 @@ const NewComment = (props) => {
 }
 
 export default NewComment
-
-
-
-// article_id: 34
-// author: "jessjelly"
-// body : "Eaque fugiat est veniam ex praesentium et saepe molestias non. Est dolore et sint consequuntur."
-// comment_id: 48
-// created_at:"2020-03-08T20:02:00.000Z"
-// votes: 12
-
-
-// "examplePost": {
-//     "username": "lurker",
-//     "body": "This is a test comment"
-//     },
-//     "exampleResponse": {
-//     "comment_id": 19,
-//     "body": "This is a test comment",
-//     "article_id": 5,
-//     "author": "lurker",
-//     "votes": 0,
-//     "created_at": "expect.any(String)"
-//     }
-
-// const submitNewComment = () => { 
-//     // setComments(comments => [...comments, newComment])
-
-//     // invoke axios post request
-//     // update the array of all comments
-// }
