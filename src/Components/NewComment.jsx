@@ -1,11 +1,14 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { postNewComment } from '../Utils/Queries';
 import { useParams } from 'react-router-dom';
+import UserContext from '../contexts/UserContext';
 
 const NewComment = (props) => { 
+
+  const {currUser }= useContext(UserContext)
 
   const {id} = useParams() 
 
@@ -21,11 +24,11 @@ const NewComment = (props) => {
 
     const submitNewComment = () => { 
       if (newComment.length > 0) { 
-        postNewComment(id,"grumpy19", newComment)
+        postNewComment(id,currUser, newComment)
         let date = new Date()
         setComments((comments) => {[...comments, { 
           article_id: id,
-          author: "grumpy19", 
+          author: currUser, 
           body: newComment, 
           comment_id: date, 
           created_at: date, 

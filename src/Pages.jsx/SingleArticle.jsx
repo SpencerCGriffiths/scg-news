@@ -1,13 +1,17 @@
 import ViewSingleArticle from "../Components/CommentCard"
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getArticleById, getCommentById } from "../Utils/Queries"
 import { useNavigate } from 'react-router-dom'
 import { DateConverter } from "../Utils/DateConverter"
 import CommentCard from "../Components/CommentCard"
 import NewComment from "../Components/NewComment"
+import UserContext from "../contexts/UserContext"
 
 const SingleArticle = () => { 
+
+    const user = useContext(UserContext)
+
 
     let navigate = useNavigate()
 
@@ -57,7 +61,7 @@ return (
 <NewComment setComments = { setComments } /> 
 <ul> 
     {comments.map((comment)=> { 
-        return <CommentCard comment = { comment } key= {comment.comment_id}/> 
+        return <CommentCard comment = { comment } setComments= { setComments } key= {comment.comment_id}/> 
     })} 
 
 </ul>
