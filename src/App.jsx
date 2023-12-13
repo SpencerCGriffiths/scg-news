@@ -22,7 +22,7 @@ return (
     <NavWrapper />
     <Routes>  
     <Route path="/" element= {<ViewAll />} /> 
-    <Route path="/articles/topic/:topic" element ={<ViewByTopic />} /> 
+    <Route path="/articles/topic/:topic" element ={<ViewAll />} /> 
     <Route path="/articles/:id" element ={<SingleArticle />}/>
     </Routes>
     <BottomButtons /> 
