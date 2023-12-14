@@ -9,10 +9,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getArticles } from './Utils/Queries'
 import SingleArticle from './Pages.jsx/SingleArticle'
 import ViewAll from './Pages.jsx/ViewAll'
+import UserContext from './contexts/UserContext'
 
 
 function App() {
+  const [currUser, setCurrUser] = useState("grumpy19")
 return (
+  <UserContext.Provider value={{ currUser, setCurrUser}} >
 <BrowserRouter> 
     <Header /> 
     <NavWrapper />
@@ -22,6 +25,7 @@ return (
     </Routes>
     <BottomButtons /> 
 </BrowserRouter>
+</UserContext.Provider> 
   )
 }
 

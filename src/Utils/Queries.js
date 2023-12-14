@@ -56,3 +56,38 @@ export function postNewComment (id, username, comment) {
     console.log(err)
   })
 }
+
+export function deleteComment (commentId) {
+  return axios
+  .delete(`https://readaway.onrender.com/api/comments/${commentId}`)
+  .then((res) => { 
+    console.log(res)
+  })
+  .catch((err) => { 
+    console.log(err)
+  }) 
+
+}
+
+
+
+
+
+// article_id
+// : 
+// 34
+// author
+// : 
+// "grumpy19"
+// body
+// : 
+// "making sure that comment cannot be blank"
+// comment_id
+// : 
+// 319
+// created_at
+// : 
+// "2023-12-13T09:29:49.594Z"
+// votes
+// : 
+// 0
