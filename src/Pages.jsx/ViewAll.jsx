@@ -13,11 +13,11 @@ const ViewAll = () => {
     const[sort_by, setSort_by] = useState("")
     const[order_by, setOrder_by] = useState("")
 
-console.log(sort_by, "sort")
-console.log(order_by, "order")
-console.log(topic, "topic")
-console.log(articles, "articles")
-console.log(isLoading, "loading")
+// console.log(sort_by, "sort")
+// console.log(order_by, "order")
+// console.log(topic, "topic")
+// console.log(articles, "articles")
+// console.log(isLoading, "loading")
 
 useEffect(()=> { 
         setIsLoading(true)
@@ -26,7 +26,7 @@ useEffect(()=> {
             setArticles(res)
             setIsLoading(false)
         })
-    }, [topic])
+    }, [topic, sort_by, order_by])
     
 
 if (isLoading) { 
@@ -37,16 +37,15 @@ return   <div style={{ paddingTop: '50vh', textAlign: 'center' }}>
 
 if (articles) { 
     return ( 
-        <> 
         <div id = "artHeader">
         <h1 > Welcome to SCG NEWS</h1>
-        {topic ? null : <FilterButton  setSort_by = { setSort_by} setOrder_by = { setOrder_by }/>} 
-        </div>
+        <FilterButton setSort_by = { setSort_by} setOrder_by = { setOrder_by } />
      {articles.map((article) => {
         return <ArticleCard  article = {article}  setArticles = {setArticles} key = {article.article_id} /> }) } 
-        </>
+        </div>
     )
     }
 }
 
 export default ViewAll
+

@@ -8,24 +8,24 @@ const ArticleCard = (props) => {
 const { article, setArticles } = props
 
 
-const handleClick = (article_id, vote) => { 
-  updatedArticles(article_id, vote)
-  updateVotes(article_id, vote)
-}
-
-const updatedArticles = (article_id, vote) => { 
-setArticles((articles) => {
- let updatedArray = articles.map((article) => { 
-        if (article.article_id === article_id) { 
-            article.votes += vote 
+const handleClick = (article_id, vote) => {
+    updatedArticles(article_id, vote);
+    updateVotes(article_id, vote);
+  };
+  
+  const updatedArticles = (article_id, vote) => {
+    setArticles((prevArticles) => {
+      return prevArticles.map((article) => {
+        if (article.article_id === article_id) {
+          return {
+            ...article,
+            votes: article.votes + vote,
+          };
         }
-        return article
-    }) 
-    console.log(updatedArray)
-    return setArticles(updatedArray)
-})
-}
-
+        return article;
+      });
+    });
+  };
 
 return ( <article  id="singleArticle" key = {article.article_id} > 
 <Link className="Link" to={`/articles/${article.article_id}`}>

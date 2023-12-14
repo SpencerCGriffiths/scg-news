@@ -9,6 +9,8 @@ export function getArticles (topic, sort_by, order_by) {
     order_by: order_by,
   };
 
+  const url = `${baseURL}?topic=${topic}&sort_by=${sort_by}&order_by=${order_by}`;
+  console.log('Request URL:', url); // Logging the URL before making the request
   
   return axios.get(baseURL, { params })
       .then((res) => { 
