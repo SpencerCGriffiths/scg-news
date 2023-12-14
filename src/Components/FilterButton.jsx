@@ -14,7 +14,7 @@ const FilterButton = (props) => {
   const [sort, setSort] = useState('')
   const [order, setOrder] = useState('')
 
-  const {setSort_by, setOrder_by} = props 
+  const {setSort_by, setOrder_by, sort_by, order_by} = props 
 
   const handleSort = (event) => {
     setSort(event.target.value);
@@ -33,6 +33,56 @@ const FilterButton = (props) => {
     setOrder_by(order);
   };
 
+  const sortformatting = (sort_by) => { 
+
+    let onScreenSort; 
+
+    switch (sort_by) { 
+      case "comment_count":
+        onScreenSort = "comments";
+        break;
+      case "votes":
+        onScreenSort = "votes";
+        break;
+      case "created_at":
+        onScreenSort = "date";
+        break;
+        default: 
+        onScreenSort = "date";
+    }
+    return onScreenSort
+  
+  }
+
+  const orderformatting = (order_by) =>{ 
+    let onScreenOrder; 
+
+    switch (order_by) { 
+      case "asc":
+        onScreenOrder = "ascending";
+        break;
+      case "desc":
+        onScreenOrder = "descending";
+        break;
+        default: 
+        onScreenOrder = "descending";
+    }
+    return onScreenOrder
+
+  }
+
+  const FilteringBy = () => { 
+    
+    if (sortformatting(sort_by) === "date" && orderformatting(order_by) === "descending") { 
+      return (<span>filtering by default: {sortformatting(sort_by)} {orderformatting(order_by)}
+    </span>
+    )
+    } else {
+      return (<span>filtering by: {sortformatting(sort_by)} {orderformatting(order_by)}
+      </span>
+      )
+    }
+  }
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
@@ -55,13 +105,14 @@ const FilterButton = (props) => {
           labelId="orderField"
           id="orderField"
           value={order}
-          label="orderField"
+          label= {order_by}
           onChange={handleOrder}
         >
           <MenuItem value={"asc"}>Ascending</MenuItem>
           <MenuItem value={"desc"}>Descending</MenuItem>
           </Select>
       </FormControl>
+      <FilteringBy /> 
       <Button variant="text" onClick={handleReset}> Reset</Button>
       <Button variant="text" onClick={handleClick}> Submit</Button>
     </Box>
