@@ -36,12 +36,12 @@ const FilterButton = (props) => {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Sort by</InputLabel>
+        <InputLabel id="sortFieldLabel">Sort by</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="sortFieldLabel"
+          id="sortField"
           value={sort}
-          label="Age"
+          label="sort"
           onChange={handleSort}
         >
           <MenuItem value={"comment_count"}>comments</MenuItem>
@@ -50,12 +50,12 @@ const FilterButton = (props) => {
         </Select>
       </FormControl>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Order by</InputLabel>
+        <InputLabel id="orderField">Order by</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="orderField"
+          id="orderField"
           value={order}
-          label="Age"
+          label="orderField"
           onChange={handleOrder}
         >
           <MenuItem value={"asc"}>Ascending</MenuItem>
