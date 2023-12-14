@@ -1,13 +1,16 @@
 import axios from "axios"
 
-export function getArticles (topic) {  
+export function getArticles (topic, sort_by, order_by) {  
   const baseURL =  "https://readaway.onrender.com/api/articles";
 
   const params = {
     topic: topic,
+    sort_by: sort_by,
+    order_by: order_by,
   };
+
   
-      return axios.get(baseURL, { params })
+  return axios.get(baseURL, { params })
       .then((res) => { 
           return res.data.articles
         })
