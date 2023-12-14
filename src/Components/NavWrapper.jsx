@@ -4,7 +4,6 @@ import SearchBar from "./SearchBar"
 const NavWrapper = () => { 
     return < div id= "NavWrapper"> 
     <SearchBar /> 
-    <FilterButton /> 
     </div>
 }
 
