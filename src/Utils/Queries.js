@@ -1,15 +1,24 @@
 import axios from "axios"
 
-export function getArticles (id) {  
-        return axios
-        .get("https://readaway.onrender.com/api/articles", {
-          params: { 
-            id : 3
-          }
-        })
-        .then((res) => { 
+export function getArticles (topic, sort_by, order_by) {  
+  const baseURL =  "https://readaway.onrender.com/api/articles";
+
+  const params = {
+    topic: topic,
+    sort_by: sort_by,
+    order_by: order_by,
+  }; 
+
+  const url = `${baseURL}?topic=${params.topic}&sort_by=${params.sort_by}&order_by=${params.order_by}`;
+  console.log('Request URL:', url); // Logging the URL
+
+  return axios.get(baseURL, { params })
+      .then((res) => {
           return res.data.articles
         })
+        .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
 }
 
 
@@ -94,4 +103,6 @@ export function getArticleByTopic (topic) {
   .catch((err) => { 
     console.log(err)
   })
+
+
 }
