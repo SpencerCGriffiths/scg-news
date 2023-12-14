@@ -36,7 +36,21 @@ export function updateVotes (id, vote) {
   .patch(`https://readaway.onrender.com/api/articles/${id}`, 
   {"inc_votes": vote})
   .then((res) => { 
-    console.log(res.data.updatedArticle.votes)
+    return res.data.updatedArticle.votes
+  })
+  .catch((err) => { 
+    console.log(err)
+  })
+}
+
+export function postNewComment (id, username, comment) { 
+  return axios
+  .post(`https://readaway.onrender.com/api/articles/${id}/comments`,
+    { 
+    "username": username,
+    "body": comment})
+  .then((res) => { 
+    console.log(res)
   })
   .catch((err) => { 
     console.log(err)
