@@ -7,17 +7,20 @@ import { useParams } from "react-router-dom"
 const CommentCard = (props) => { 
 
     const { currUser } = useContext(UserContext)
-    const {comment, setComments} = props
+    const {comment, setComments, setIsError, setErrMsg} = props
 
-    const handleClick = () => { 
-        deleteComment(comment.comment_id)
-        setComments((comments) => { 
-            let updatedComments = comments.filter((com) => {
-                return !(com.author === comment.author && com.comment_id === comment.comment_id);
-            });
-            console.log(updatedComments)
-            return updatedComments;
-        });
+
+    const handleClick = () => {  
+            deleteComment(comment.comment_id)
+            .then((res) => { 
+                setIsError(false)
+                setComments((comments) => { 
+                  return comments.filter((com) => com.comment_id !== comment.comment_id) 
+            })})
+            .catch((err) => { 
+                setIsError(true)
+                setErrMsg(err.message)
+            })    
     };   
 
    

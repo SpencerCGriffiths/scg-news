@@ -30,7 +30,6 @@ export function getCommentById (id) {
   })
 }
 
-
 export function updateVotes (id, vote) { 
   return axios
   .patch(`https://readaway.onrender.com/api/articles/${id}`, 
@@ -50,7 +49,7 @@ export function postNewComment (id, username, comment) {
     "username": username,
     "body": comment})
   .then((res) => { 
-    console.log(res)
+    return res
   })
   .catch((err) => { 
     console.log(err)
@@ -61,15 +60,29 @@ export function deleteComment (commentId) {
   return axios
   .delete(`https://readaway.onrender.com/api/comments/${commentId}`)
   .then((res) => { 
-    console.log(res)
+    return res
+  })
+  .catch(error => {
+    if (error.response) {
+      console.log('Server responded with an error status:', error.response.status);
+    } else if (error.request) {
+      return Promise.reject({ status: error.message, message: "Comment was not deleted" })
+    } else {
+      console.log('Error during request setup:', error.message);
+    }
+  });
+}
+
+export function getTopics () { 
+  return axios.
+  get(`https://readaway.onrender.com/api/topics`)
+  .then((res) => { 
+    return res.data.topics
   })
   .catch((err) => { 
     console.log(err)
-  }) 
-
+  })
 }
-
-
 
 
 

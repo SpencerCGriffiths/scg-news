@@ -1,33 +1,33 @@
 import { DateConverter } from "../Utils/DateConverter"
 import { Link } from 'react-router-dom'
 import { updateVotes } from "../Utils/Queries"
-import { useEffect } from "react"
-import { useState } from "react"
+import { useContext, useState } from "react"
 
-const ViewAllArticles = (props) => { 
+const ArticleCard = (props) => { 
 
-const { articles , setArticles } = props
+const { article, setArticles } = props
+
 
 const handleClick = (article_id, vote) => { 
   updatedArticles(article_id, vote)
-  return updateVotes(article_id, vote)  
+  updateVotes(article_id, vote)
 }
 
 const updatedArticles = (article_id, vote) => { 
-  const updatedArticles = articles.map((article) => { 
-    if(article.id === article_id) { 
-      return { ...article, 
-        votes: article.votes + vote }
-    }
-    return article 
-  })
-  setArticles(updatedArticles)
+setArticles((articles) => {
+ let updatedArray = articles.map((article) => { 
+        if (article.article_id === article_id) { 
+            article.votes += vote 
+        }
+        return article
+    }) 
+    console.log(updatedArray)
+    return setArticles(updatedArray)
+})
 }
 
-return ( 
-    <div className="articles"> 
-     {articles.map((article) => {
-return <article  id="singleArticle" key = {article.article_id} > 
+
+return ( <article  id="singleArticle" key = {article.article_id} > 
 <Link className="Link" to={`/articles/${article.article_id}`}>
             <h3 id="articleTitle"> {article.title} </h3>
             
@@ -48,10 +48,7 @@ return <article  id="singleArticle" key = {article.article_id} >
             </Link>
             </div>
         </article>
-        
-     })}
-   </div> 
-)
+         )
 }
 
-export default ViewAllArticles
+export default ArticleCard

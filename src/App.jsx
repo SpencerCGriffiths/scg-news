@@ -10,6 +10,7 @@ import { getArticles } from './Utils/Queries'
 import SingleArticle from './Pages.jsx/SingleArticle'
 import ViewAll from './Pages.jsx/ViewAll'
 import UserContext from './contexts/UserContext'
+// import ViewByCat from './Pages.jsx/ViewByCat'
 
 
 function App() {
@@ -22,6 +23,7 @@ return (
     <Routes>  
     <Route path="/" element= {<ViewAll />} /> 
     <Route path="/articles/:id" element ={<SingleArticle />}/>
+    {/* <Route path="/articles" element ={<ViewByCat />} />  */}
     </Routes>
     <BottomButtons /> 
 </BrowserRouter>
