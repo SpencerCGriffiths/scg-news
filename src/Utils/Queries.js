@@ -85,22 +85,13 @@ export function getTopics () {
 }
 
 
-
-// article_id
-// : 
-// 34
-// author
-// : 
-// "grumpy19"
-// body
-// : 
-// "making sure that comment cannot be blank"
-// comment_id
-// : 
-// 319
-// created_at
-// : 
-// "2023-12-13T09:29:49.594Z"
-// votes
-// : 
-// 0
+export function getArticleByTopic (topic) { 
+  return axios
+  .get(`https://readaway.onrender.com/api/articles?topic=${topic}`)
+  .then((res) => { 
+    return res.data.articles
+  })
+  .catch((err) => { 
+    console.log(err)
+  })
+}
