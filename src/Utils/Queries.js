@@ -71,10 +71,15 @@ export function deleteComment (commentId) {
   .then((res) => { 
     return res
   })
-  .catch((err) => { 
-    console.log(err)
-  }) 
-
+  .catch(error => {
+    if (error.response) {
+      console.log('Server responded with an error status:', error.response.status);
+    } else if (error.request) {
+      return Promise.reject({ status: error.message, message: "Comment was not deleted" })
+    } else {
+      console.log('Error during request setup:', error.message);
+    }
+  });
 }
 
 export function getTopics () { 
