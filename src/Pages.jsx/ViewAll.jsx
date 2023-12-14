@@ -13,14 +13,12 @@ const ViewAll = () => {
     const[sort_by, setSort_by] = useState("")
     const[order_by, setOrder_by] = useState("")
 
-// console.log(sort_by, "sort")
-// console.log(order_by, "order")
-// console.log(topic, "topic")
-// console.log(articles, "articles")
-// console.log(isLoading, "loading")
+
 
 useEffect(()=> { 
-        setIsLoading(true)
+console.log(order_by)
+console.log(sort_by)
+    setIsLoading(true)
         getArticles(topic, sort_by, order_by)
         .then((res)=> { 
             setArticles(res)

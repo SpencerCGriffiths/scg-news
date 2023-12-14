@@ -5,6 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
+import Button from '@mui/material/Button';
+    <Button variant="text">Text</Button>
+
 
 const FilterButton = (props) => { 
 
@@ -19,6 +22,11 @@ const FilterButton = (props) => {
   const handleOrder = (event) => {
     setOrder_by(event.target.value);
   };
+
+  const handleReset = () => { 
+    setOrder_by("desc")
+    setSort_by("created_at")
+  }
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -35,7 +43,6 @@ const FilterButton = (props) => {
           <MenuItem value={"topic"}>Topic</MenuItem>
           <MenuItem value={"author"}>Author</MenuItem>
           <MenuItem value={"votes"}>Votes</MenuItem>
-          <MenuItem value={"comment_count"}>Comments</MenuItem>
           <MenuItem value={"created_at"}>Date</MenuItem>
         </Select>
       </FormControl>
@@ -52,6 +59,7 @@ const FilterButton = (props) => {
           <MenuItem value={"desc"}>Descending</MenuItem>
           </Select>
       </FormControl>
+      <Button variant="text" onClick={handleReset}> Reset</Button>
     </Box>
   );
 }
