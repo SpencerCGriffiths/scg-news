@@ -4,7 +4,7 @@ body {
 }
 
 .main { 
-  margin-top: 15vh;
+  margin-top: 20vh;
 }
 
 /* Header */
@@ -13,7 +13,7 @@ body {
   position: fixed; 
   top: 0;
   background-color: #283044;
-  width: 95vw;
+  width: 100vw;
   padding: 10px; 
   left: 0;
   color: #fff; /* Header text color */
@@ -33,6 +33,11 @@ body {
   width: 100vw; 
   display: flex inline
 }
+
+.custom-textfield {
+  height: 30px; /* Set the desired height */
+}
+
 
 #Filter { 
   border: 1px solid black; 
