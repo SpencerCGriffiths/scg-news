@@ -1,6 +1,6 @@
 /* app / general styling*/
 body { 
-  background-color: #EBF5EE;
+  background-color: #EBF5EE ;
 }
 
 .main { 
@@ -44,6 +44,21 @@ body {
 
 /* Homepage */
 
+.fixedtop { 
+  position: fixed; 
+  margin-top: 16vh;
+  top: 0vh;
+  left: auto; 
+  background-color: #EBF5EE;
+  width: 100vw; 
+  opacity: 1;
+  z-index: 1000
+}
+
+.topSpacing { 
+  margin-top: 30vh;
+}
+
 #topicPageHeader { 
   margin-bottom: .3vh;
 
@@ -53,37 +68,29 @@ body {
   margin-bottom: .3vh;
 }
 
-#artHeader { 
+/* #artHeader { 
  position: fixed;
  top: 11vh;
  background-color: white;  
-}
+} */
 
-.cardHeader { 
+/* .cardHeader { 
   height: 2vh;
-}
+} */
 
-.articles { 
+/* .articles { 
   margin-top: 20vh;
-}
+} */
 
 .headerMargin { 
   margin-top: 15vh;
 }
 
-#singleArticle { 
-
-}
-
-#articleTitle { 
-
-}
 
 #articleImg { 
   width: 80vw; 
   height: 5vh; 
 }
-
 
 /* Bottom Buttons */
 

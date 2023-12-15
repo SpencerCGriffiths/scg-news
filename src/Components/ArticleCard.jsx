@@ -57,8 +57,7 @@ const handleClick = (article_id, vote) => {
   };
 
     return (
-      <> 
-      <Card sx={{ width: "95vw" }} key = {article.article_id}>
+      <Card sx={{ width: "95vw", marginBottom: "15px", marginTop: "10px", background: "#FFCFD2"}} key = {article.article_id}>
 
         <Link className="Link" to={`/articles/${article.article_id}`}>
         <CardMedia
@@ -80,7 +79,7 @@ const handleClick = (article_id, vote) => {
           <br />
           topic: {article.topic}
 
-          <span> {article.comment_count} comments</span>
+          
           </Typography>
         </CardContent>
         <CardActions>
@@ -90,11 +89,10 @@ const handleClick = (article_id, vote) => {
           <Button size="small" onClick={() => { 
              handleClick(article.article_id, -1)}}>Nay</Button>
             <Link className="Link" to={`/articles/${article.article_id}`} >
-                           <Button>See Comments</Button>
+            <span> {article.comment_count} comments</span>
             </Link>
         </CardActions>
       </Card>
-      </>
     );
   }
 export default ArticleCard
