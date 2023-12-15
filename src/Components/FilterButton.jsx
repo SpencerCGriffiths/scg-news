@@ -74,18 +74,22 @@ const FilterButton = (props) => {
   const FilteringBy = () => { 
     
     if (sortformatting(sort_by) === "date" && orderformatting(order_by) === "descending") { 
-      return (<span>filtering by default: {sortformatting(sort_by)} {orderformatting(order_by)}
-    </span>
+      return (
+        <span>
+          filtering by default: {sortformatting(sort_by)} {orderformatting(order_by)}
+      </span>
     )
     } else {
-      return (<span>filtering by: {sortformatting(sort_by)} {orderformatting(order_by)}
+      return (
+      <span>
+        filtering by: {sortformatting(sort_by)} {orderformatting(order_by)}
       </span>
       )
     }
   }
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+    <Box sx={{ minWidth: "100vw" }}>
+      <FormControl >
         <InputLabel id="sortFieldLabel">Sort by</InputLabel>
         <Select
           labelId="sortFieldLabel"
@@ -93,13 +97,14 @@ const FilterButton = (props) => {
           value={sort}
           label="sort"
           onChange={handleSort}
+          sx={{ width: "31vw", height: "5vh"}}
         >
           <MenuItem value={"comment_count"}>comments</MenuItem>
           <MenuItem value={"votes"}>Votes</MenuItem>
           <MenuItem value={"created_at"}>Date</MenuItem>
         </Select>
       </FormControl>
-      <FormControl fullWidth>
+      <FormControl >
         <InputLabel id="orderField">Order by</InputLabel>
         <Select
           labelId="orderField"
@@ -107,14 +112,15 @@ const FilterButton = (props) => {
           value={order}
           label= {order_by}
           onChange={handleOrder}
-        >
+          sx={{ width: "31vw", height: "5vh"}}
+          >
           <MenuItem value={"asc"}>Ascending</MenuItem>
           <MenuItem value={"desc"}>Descending</MenuItem>
           </Select>
       </FormControl>
+      <Button variant="contained" onClick={handleClick}  sx={{ width: "17vw", height: "5vh"}}> Set <br /> Filter </Button>
+      <Button variant="contained" onClick={handleReset} sx={{ width: "17vw", height: "5vh"}}> Reset <br /> Filter</Button>
       <FilteringBy /> 
-      <Button variant="text" onClick={handleReset}> Reset</Button>
-      <Button variant="text" onClick={handleClick}> Submit</Button>
     </Box>
   );
 }

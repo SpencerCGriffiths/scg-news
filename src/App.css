@@ -31,7 +31,9 @@ body {
   padding-bottom: .4em;
   background-color: #78A1BB;
   width: 100vw; 
-  display: flex inline
+  display: flex inline;
+  opacity: 1;
+  z-index: 1000
 }
 
 .custom-textfield {
@@ -39,16 +41,26 @@ body {
 }
 
 
-#Filter { 
-  border: 1px solid black; 
-}
-
 
 /* Homepage */
+
+#topicPageHeader { 
+  margin-bottom: .3vh;
+
+}
+
+#mainPageHeader { 
+  margin-bottom: .3vh;
+}
+
 #artHeader { 
  position: fixed;
  top: 11vh;
  background-color: white;  
+}
+
+.cardHeader { 
+  height: 2vh;
 }
 
 .articles { 
