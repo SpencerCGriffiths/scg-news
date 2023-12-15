@@ -1,21 +1,36 @@
+/* app / general styling*/
+body { 
+  background-color: #EBF5EE;
+}
+
+.main { 
+  margin-top: 15vh;
+}
+
 /* Header */
 #Header { 
   border: 1px solid black;
   position: fixed; 
   top: 0;
-  background-color: white;
+  background-color: #283044;
   width: 95vw;
   padding: 10px; 
+  left: 0;
+  color: #fff; /* Header text color */
+  z-index: 100; /* Set a high z-index to ensure the header is above other content */
 }
 
 
 /* Navigation */
 #NavWrapper { 
-  border: 1px solid black; 
   position: fixed; 
-  top: 10vh;
-  background-color: white;
-  width: 95vw; 
+  top: 11vh;
+  left: 0; 
+  padding-left: 2em;
+  padding-top: .4vh;
+  padding-bottom: .4em;
+  background-color: #78A1BB;
+  width: 100vw; 
   display: flex inline
 }
 

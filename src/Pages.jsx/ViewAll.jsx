@@ -34,8 +34,8 @@ return   <div style={{ paddingTop: '50vh', textAlign: 'center' }}>
 
 if (articles) { 
     return ( 
-        <div id = "artHeader">
-        <h1 > Welcome to SCG NEWS</h1>
+        <div className="main">
+        {topic ? <h3 id = "topicPageHeader">You are viewing {topic} articles...</h3>: <h1 id = "mainPageHeader"> Welcome to SCG NEWS</h1> }
         <FilterButton setSort_by = { setSort_by} sort_by = {sort_by} setOrder_by = { setOrder_by } order_by = { order_by}/> 
      {articles.map((article) => {
         return <ArticleCard  article = {article}  setArticles = {setArticles} key = {article.article_id} /> }) } 
