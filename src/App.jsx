@@ -2,7 +2,6 @@ import { useState, useEffect} from 'react'
 import axios from "axios"
 import './App.css'
 import Header from './Components/Header'
-import NavWrapper from './Components/NavWrapper'
 import BottomButtons from './Components/BottomButtons'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SingleArticle from './Pages.jsx/SingleArticle'
@@ -17,7 +16,6 @@ return (
   <UserContext.Provider value={{ currUser, setCurrUser}} >
 <BrowserRouter> 
     <Header /> 
-    <NavWrapper />
     <Routes>  
     <Route path="/" element= {<ViewAll />} /> 
     <Route path="/articles/topic/:topic" element ={<ViewAll />} /> 

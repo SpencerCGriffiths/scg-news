@@ -3,6 +3,7 @@ import { getArticleByTopic, getArticles } from "../Utils/Queries"
 import ArticleCard from "../Components/ArticleCard"
 import { useParams } from "react-router-dom"
 import FilterButton from "../Components/FilterButton"
+import SearchBar from "../Components/SearchBar"
 
 
 const ViewAll = () => {
@@ -34,7 +35,9 @@ return   <div style={{ paddingTop: '50vh', textAlign: 'center' }}>
 
 if (articles) { 
     return ( 
+        
         <div className="main">
+        <SearchBar />
         {topic ? <h3 id = "topicPageHeader">You are viewing {topic} articles...</h3>: <h1 id = "mainPageHeader"> Welcome to SCG NEWS</h1> }
         <FilterButton setSort_by = { setSort_by} sort_by = {sort_by} setOrder_by = { setOrder_by } order_by = { order_by}/> 
      {articles.map((article) => {

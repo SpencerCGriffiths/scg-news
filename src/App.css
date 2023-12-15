@@ -21,8 +21,8 @@ body {
 }
 
 
-/* Navigation */
-#NavWrapper { 
+/* SearchBar */
+#searchBar { 
   position: fixed; 
   top: 11vh;
   left: 0; 
@@ -35,10 +35,6 @@ body {
 }
 
 #Filter { 
-  border: 1px solid black; 
-}
-
-#searchBar { 
   border: 1px solid black; 
 }
 
