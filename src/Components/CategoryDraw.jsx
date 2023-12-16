@@ -8,8 +8,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { getTopics } from '../Utils/Queries';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -48,10 +46,12 @@ const CategoryDraw = () => {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      className="drawer-container"
     >
-      <List>
+      <List className="draw-top-list">
+      <ListItemText primary="Topics:" style={{ marginLeft: "75px" }}/>
         {topics.map((topic) => { 
-         return <ListItem key={topic.slug} disablePadding>
+         return <ListItem key={topic.slug} >
             <Link className="link" to={`/articles/topic/${topic.slug}`}> 
             <ListItemButton>
               <ListItemIcon>
@@ -63,8 +63,8 @@ const CategoryDraw = () => {
     })}
     </List>
       <Divider />
-      <List>
-      <ListItem key="category" disablePadding>
+      <List className="draw-bottom-list" >
+      <ListItem key="OtherLinks" >
             <ListItemButton>
               <ListItemIcon>
               </ListItemIcon>

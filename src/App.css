@@ -1,66 +1,121 @@
+/* app / general styling*/
+body { 
+  background-color: #EBF5EE ;
+}
+
+.main { 
+  margin-top: 20vh;
+}
+
 /* Header */
 #Header { 
   border: 1px solid black;
   position: fixed; 
   top: 0;
-  background-color: white;
-  width: 95vw;
+  background-color: #283044;
+  width: 100vw;
   padding: 10px; 
+  left: 0;
+  color: #fff; /* Header text color */
+  z-index: 100; /* Set a high z-index to ensure the header is above other content */
 }
 
 
-/* Navigation */
-#NavWrapper { 
-  border: 1px solid black; 
-  position: fixed; 
-  top: 10vh;
-  background-color: white;
-  width: 95vw; 
-  display: flex inline
-}
-
-#Filter { 
-  border: 1px solid black; 
-}
-
+/* SearchBar */
 #searchBar { 
-  border: 1px solid black; 
+  position: fixed; 
+  top: 11vh;
+  left: 0; 
+  padding-left: 2em;
+  padding-top: .4vh;
+  padding-bottom: .4em;
+  background-color: #78A1BB;
+  width: 100vw; 
+  display: flex inline;
+  opacity: 1;
+  z-index: 1000
 }
+
+.custom-textfield {
+  height: 30px; /* Set the desired height */
+}
+
 
 
 /* Homepage */
-#artHeader { 
+
+.fixedtop { 
+  position: fixed; 
+  margin-top: 16vh;
+  top: 0vh;
+  left: auto; 
+  background-color: #EBF5EE;
+  width: 100vw; 
+  opacity: 1;
+  z-index: 1000
+}
+
+.topSpacing { 
+  margin-top: 30vh;
+}
+
+#topicPageHeader { 
+  margin-bottom: .3vh;
+
+}
+
+#mainPageHeader { 
+  margin-bottom: .3vh;
+}
+
+/* #artHeader { 
  position: fixed;
  top: 11vh;
  background-color: white;  
-}
+} */
 
-.articles { 
+/* .cardHeader { 
+  height: 2vh;
+} */
+
+/* .articles { 
   margin-top: 20vh;
-}
+} */
 
 .headerMargin { 
   margin-top: 15vh;
 }
 
-#singleArticle { 
-
-}
-
-#articleTitle { 
-
-}
 
 #articleImg { 
   width: 80vw; 
   height: 5vh; 
 }
 
-
 /* Bottom Buttons */
 
 .BottomButtonPane { 
   border: 1px solid black; 
   position: fixed;
+  margin-left: auto; 
   bottom: 0;  
+  width: 70vw;
+  left: 15vw; 
+  display: flex;
+  justify-content: center;
+}
+
+.drawer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.draw-bottom-list {
+  margin-top: auto; /* Pushes the bottom list to the bottom */
+}
+
+.draw-top-list {
+  margin-top: auto; /* Pushes the bottom list to the bottom */
 }

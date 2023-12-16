@@ -1,17 +1,21 @@
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import { Link } from 'react-router-dom'
 import CategoryDraw from './CategoryDraw'
 
 const BottomButtons = () => { 
-    return ( 
-        <div className="BottomButtonPane"> 
+  return (
+    <ButtonGroup variant="contained" aria-label="outlined primary button group" className="BottomButtonPane">
 <Link to='/'> 
-            <button> Home </button>
+      <Button>Home</Button>
 </Link>
-            <button> Category </button>
-            <button> User </button>
-            <CategoryDraw /> 
-        </div> 
-    )
+      <Button> Post</Button>
+      <Button> User</Button>
+      <CategoryDraw />
+    
+    </ButtonGroup>
+  );
 }
 
 export default BottomButtons

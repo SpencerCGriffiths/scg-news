@@ -14,7 +14,7 @@ const FilterButton = (props) => {
   const [sort, setSort] = useState('')
   const [order, setOrder] = useState('')
 
-  const {setSort_by, setOrder_by} = props 
+  const {setSort_by, setOrder_by, sort_by, order_by} = props 
 
   const handleSort = (event) => {
     setSort(event.target.value);
@@ -33,9 +33,63 @@ const FilterButton = (props) => {
     setOrder_by(order);
   };
 
+  const sortformatting = (sort_by) => { 
+
+    let onScreenSort; 
+
+    switch (sort_by) { 
+      case "comment_count":
+        onScreenSort = "comments";
+        break;
+      case "votes":
+        onScreenSort = "votes";
+        break;
+      case "created_at":
+        onScreenSort = "date";
+        break;
+        default: 
+        onScreenSort = "date";
+    }
+    return onScreenSort
+  
+  }
+
+  const orderformatting = (order_by) =>{ 
+    let onScreenOrder; 
+
+    switch (order_by) { 
+      case "asc":
+        onScreenOrder = "ascending";
+        break;
+      case "desc":
+        onScreenOrder = "descending";
+        break;
+        default: 
+        onScreenOrder = "descending";
+    }
+    return onScreenOrder
+
+  }
+
+  const FilteringBy = () => { 
+    
+    if (sortformatting(sort_by) === "date" && orderformatting(order_by) === "descending") { 
+      return (
+        <span>
+          filtering by default: {sortformatting(sort_by)} {orderformatting(order_by)}
+      </span>
+    )
+    } else {
+      return (
+      <span>
+        filtering by: {sortformatting(sort_by)} {orderformatting(order_by)}
+      </span>
+      )
+    }
+  }
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+    <Box sx={{ minWidth: "100vw" }}>
+      <FormControl >
         <InputLabel id="sortFieldLabel">Sort by</InputLabel>
         <Select
           labelId="sortFieldLabel"
@@ -43,27 +97,30 @@ const FilterButton = (props) => {
           value={sort}
           label="sort"
           onChange={handleSort}
+          sx={{ width: "31vw", height: "5vh"}}
         >
           <MenuItem value={"comment_count"}>comments</MenuItem>
           <MenuItem value={"votes"}>Votes</MenuItem>
           <MenuItem value={"created_at"}>Date</MenuItem>
         </Select>
       </FormControl>
-      <FormControl fullWidth>
+      <FormControl >
         <InputLabel id="orderField">Order by</InputLabel>
         <Select
           labelId="orderField"
           id="orderField"
           value={order}
-          label="orderField"
+          label= {order_by}
           onChange={handleOrder}
-        >
+          sx={{ width: "31vw", height: "5vh"}}
+          >
           <MenuItem value={"asc"}>Ascending</MenuItem>
           <MenuItem value={"desc"}>Descending</MenuItem>
           </Select>
       </FormControl>
-      <Button variant="text" onClick={handleReset}> Reset</Button>
-      <Button variant="text" onClick={handleClick}> Submit</Button>
+      <Button variant="contained" onClick={handleClick}  sx={{ width: "17vw", height: "5vh"}}> Set <br /> Filter </Button>
+      <Button variant="contained" onClick={handleReset} sx={{ width: "17vw", height: "5vh"}}> Reset <br /> Filter</Button>
+      <FilteringBy /> 
     </Box>
   );
 }
