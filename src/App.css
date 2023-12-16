@@ -97,5 +97,25 @@ body {
 .BottomButtonPane { 
   border: 1px solid black; 
   position: fixed;
+  margin-left: auto; 
   bottom: 0;  
+  width: 70vw;
+  left: 15vw; 
+  display: flex;
+  justify-content: center;
+}
+
+.drawer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.draw-bottom-list {
+  margin-top: auto; /* Pushes the bottom list to the bottom */
+}
+
+.draw-top-list {
+  margin-top: auto; /* Pushes the bottom list to the bottom */
 }
